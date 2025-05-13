@@ -14,7 +14,16 @@ import { ProductDetailsSkeleton } from "./components/product-details-skeleton";
 import { RelatedProductsContainer } from "./components/related-products-container";
 import { RelatedProductsSkeleton } from "./components/related-products-skeleton";
 
-export const experimental_ppr = true;
+// export const experimental_ppr = true;
+export const revalidate = 3600; // invalidate every hour
+// export const dynamicParams = true; // or false, to 404 on unknown paths
+export const dynamic = "force-static";
+export async function generateStaticParams() {
+  return [
+    { slug: "abstract-tshirt-black", locale: "en-GB" },
+    { slug: "abstract-tshirt-black", locale: "en-US" },
+  ];
+}
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string; slug: string }>;
