@@ -65,7 +65,7 @@ const nextConfig = withAnalyzer(
     },
     experimental: {
       serverExternalPackages: ["pino"],
-      ppr: "incremental",
+      // ppr: "incremental",
     },
     images: {
       remotePatterns: [
