@@ -60,7 +60,7 @@ const nextConfig = withAnalyzer(
     logging: {
       fetches: {
         // Set this to true, to see more what's cached and what's not
-        fullUrl: false,
+        fullUrl: true,
       },
     },
     experimental: {
@@ -80,7 +80,23 @@ const nextConfig = withAnalyzer(
     reactStrictMode: true,
     transpilePackages: ["@nimara/ui"],
     async headers() {
-      const headers = [];
+      const headers = [
+        // https://vercel.com/docs/edge-cache#cdn-cache-control
+        {
+          source: "/[locale]/products/[slug]",
+          headers: [
+            {
+              key: "Vercel-CDN-Cache-Control",
+              value: "public, s-maxage=3600",
+            },
+            {
+              key: "Cache-Control",
+              value: "maxage=10",
+            },
+          ],
+        },
+      ];
+
       if (process.env.NEXT_PUBLIC_VERCEL_ENV !== "production") {
         headers.push({
           headers: [
@@ -92,6 +108,7 @@ const nextConfig = withAnalyzer(
           source: "/:path*",
         });
       }
+
       return headers;
     },
     webpack: (config, { isServer }) => {

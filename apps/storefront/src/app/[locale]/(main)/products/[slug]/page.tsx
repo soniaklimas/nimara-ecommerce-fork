@@ -14,7 +14,10 @@ import { ProductDetailsSkeleton } from "./components/product-details-skeleton";
 import { RelatedProductsContainer } from "./components/related-products-container";
 import { RelatedProductsSkeleton } from "./components/related-products-skeleton";
 
-export const experimental_ppr = true;
+// export const experimental_ppr = true;
+
+// 'force-static': Force static rendering and cache the data of a layout or page by forcing cookies, headers() and useSearchParams() to return empty values.
+export const dynamic = "force-static";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string; slug: string }>;
