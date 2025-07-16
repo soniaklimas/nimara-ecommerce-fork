@@ -1,8 +1,9 @@
 # GitHub repository for the Vercel project.
-github_repository = ""
+# Format: "owner/repo". Example: "mirumee/nimara-ecommerce".
+github_repository = "soniaklimas/nimara-ecommerce-fork"
 
 # Vercel project name. If not set, it will default to "nimara-ecommerce".
-vercel_project_name = ""
+vercel_project_name = "nimara-ecommerce-fork"
 
 # Optional. List of additional environments with their configurations.
 additional_environments = []
@@ -13,8 +14,8 @@ public_environment_variables = {
     comment = "Public Saleor API URL for the storefront"
     envs_values = [
       {
-        value = "https://{YOUR_SALEOR_DOMAIN}/graphql/"
-        target = ["production", "preview", "development"]
+        value = "https://soniatest.saleor.cloud/graphql/"
+        target = ["production", "preview"]
       }
     ]
   },
@@ -23,15 +24,15 @@ public_environment_variables = {
     envs_values = [
       {
         value = "default-channel"
-        target = ["production", "preview", "development"]
+        target = ["production", "preview"]
       }]
   },
   "NEXT_PUBLIC_STOREFRONT_URL" = {
     comment = "Public URL of the storefront"
     envs_values = [
       {
-        value = "https://{YOUR_STOREFRONT_DOMAIN}"
-        target = ["production", "preview", "development"]
+        value = ""
+        target = ["production", "preview"]
       }
     ]
   }
@@ -39,8 +40,8 @@ public_environment_variables = {
     comment = "Public Stripe key for the storefront"
     envs_values = [
       {
-        value = "CHANGE_ME"
-        target = ["production", "preview", "development"]
+        value = "pk_test_51RWw3EPr5b5Swh5yf4RXHTGbPIkzEuIHsXmANUuLo7CIOEd6hDwfIPqstblCYzfDVYECsPhXi7MpAA0tx5SEASb400b24KZZZL"
+        target = ["production", "preview"]
       }
     ]
   },
@@ -48,8 +49,8 @@ public_environment_variables = {
     comment = "Public ID of the payment app for the storefront"
     envs_values = [
       {
-        value = "CHANGE_ME"
-        target = ["production", "preview", "development"]
+        value = "global.nimara-stripe"
+        target = ["production", "preview"]
       }
     ]
   }
